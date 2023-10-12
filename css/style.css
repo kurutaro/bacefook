@@ -33,6 +33,9 @@ a:hover, .active{
 
 a:active, a:focus,input:active, input:focus{outline:0;}
 
+#mainImg img{
+	width: 100%;
+}
 
 /* ヘッダー
 ------------------------------------------------------------*/
@@ -220,12 +223,64 @@ section h2 span {
 	transform: rotateY(180deg);
 }
 
-/* SEC02 GALLERY
+/* SEC02 NEW POST
 ------------------------------------------------------------*/
-#sec02{
-	padding: 0 !important;
+#sec02 .container{
+	width: 60%;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	/* text-align: center; */
 }
 
+.container textarea {
+	width: 100%;
+}
+
+.container label{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+video {
+	border: dashed 2px rgb(173, 171, 171);
+}
+
+#startbutton ,#download{
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 3px;
+	font-weight: bold;
+	color: #FFF;
+	border: #FFF;
+	background-image: linear-gradient(45deg, #709dff 0%, #b0c9ff 100%);
+	transition: .4s;
+	margin-bottom: 20px;
+	font-size: 14px;
+	font-family: Arial;
+	padding: 0.5em 1em;
+}
+
+#startbutton ,#download:hover{
+	background-image: linear-gradient(45deg, #709dff 50%, #b0c9ff 100%);
+}
+
+#postButton{
+	display: inline-block;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	border-radius: 3px;
+	font-weight: bold;
+	color: #FFF;
+	border: #FFF;
+	background-image: linear-gradient(45deg, #ff7088 50%, #f7b9d5 100%);
+	transition: .4s;
+	font-size: 14px;
+}
+
+#postButton:hover {
+	background-image: linear-gradient(45deg, #ff7088 50%, #f7b9d5 100%);
+}
 
 /* RESPONSIVE 設定
 ------------------------------------------------------------*/

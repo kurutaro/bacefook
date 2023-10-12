@@ -192,6 +192,8 @@
 
   const postButton = document.getElementById("postButton");
   postButton.addEventListener('click', createnewPost);
+  postButton.addEventListener('click',()=>{alert("Post has been completed！");})
+  postButton.addEventListener('click',display)
   scheduler();
 
 })();

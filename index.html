@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width">
     <title>美容室 | MSB</title>
     <link rel="stylesheet" media="all" href="css/style.css">
+    <link href=”https://use.fontawesome.com/releases/v6.0.0/css/all.css” rel=”stylesheet”>
   </head>
 
   <body id="top">
     <div id="wrapper">
-
       <div id="sidebar">
         <div id="sidebarWrap">
           <h1 id="profile"></h1>
@@ -19,8 +19,8 @@
             <div class="panel">
               <ul>
                 <li><a href="#top">TOP</a></li>
-                <li><a href="#sec01">CUSTOMERS POST</a></li>
                 <li><a href="#sec02">NEW POST</a></li>
+                <li><a href="#sec01">CUSTOMERS POST</a></li>
                 <!-- <li><button id="update">更新</button></li> -->
                 <li><a class="btn-handwriting" id="update">PAGE UPDATE</a></li>
               </ul>
@@ -37,33 +37,28 @@
 
       <div id="content">
         <p id="mainImg"><img src="images/mainImg.jpg" alt=""></p>
-        <!-- MESSAGE -->
-        <section id="sec01">
-          <header>
-            <h2><span>CUSTOMERS POST</span></h2>
-            
-          </header>
-          <div id="newsfeed"></div>
-        </section>
-        <!-- // MESSAGE -->
         <!-- GALLERY -->
         <section id="sec02">
           <header>
             <h2><span>NEW POST</span></h2>
           </header>
-          <div>
-            <label for="article">article:</label>
-            <input id="article" type="text" /></br>
-            <label for="hashtags">hashtags:</label>
-            <input id="hashtags" type="text" />
-            <label for="feelings">feelings:</label>
-            <input id="feelings" type="text" />
+          <div class="container">
+            <label for="article">☑article:</label></br>
+            <textarea id="article" rows="10" width="100%"></textarea></br>
+            <label for="hashtags">☑hashtags</label></br>
+            <input id="hashtags" type="text" /></br>
+            <label for="feelings">☑feelings</label></br>
+            <input id="feelings" type="text" /></br>
+            <label>☑image</label></br>
             <div class="camera">
-              <button id="activatebutton">Activate photo</button>
+              <img id="activatebutton" src="images/camera.jpeg" alt="カメラを起動するリンク" width="100px">
+              ←Click to activate camera! 
               <br>
-              <video id="video">Video stream not available.</video>
+              <video id="video"><p>ここに文章</p></video>
               <br>
-              <button id="startbutton">Take photo</button>
+              <button id="startbutton">Take Photo</button>
+              <!-- <img id="startbutton" src="images/camera.jpeg" alt="カメラを起動するリンク" width="70px"> -->
+
             </div>
             <canvas id="canvas"> </canvas>
             <style>
@@ -74,12 +69,22 @@
             <div class="output">
               <img id="photo" alt="The screen capture will appear in this box." />
             </div>
-            <a onclick="downloadImg()" id="download" class="btn btn-primary">import image</a>
+            <a onclick="downloadImg()" id="download" class="btn btn-primary">Import Image</a>
             <br>
             <button id="postButton" type="submit">投稿</button>
           </div>
         </section>
         <!-- // GALLERY -->
+        <!-- MESSAGE -->
+        <section id="sec01">
+          <header>
+            <h2><span>CUSTOMERS POST</span></h2>
+            
+          </header>
+          <div id="newsfeed"></div>
+        </section>
+        <!-- // MESSAGE -->
+
 
         <footer id="footer">
           Copyright(c) 2016 Sample Inc. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank">http://f-tpl.com</a><!-- ←クレジット表記を外す場合はシリアルキーが必要です http://f-tpl.com/credit/ -->
@@ -94,8 +99,8 @@
   <script src="js/script.js"></script>
   <script src="js/takePic.js"></script>
   <script src="js/downloadpic.js"></script>
-  <script src="js/dataGenerator.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/dataGenerator.js"></script>
   <script src="js/moment.js"></script>
   
 </html>
