@@ -13,9 +13,8 @@ const display = () => {
   }
 
   if (username) {
-    usernameEl = document.createElement("div");
-    usernameEl.innerHTML = username+"がログインしています";
-    containerEl.append(usernameEl);
+    usernameEl = document.getElementById("profile");
+    usernameEl.innerHTML = "To "+username+"'s profile";
   }
 
   // This makes things appear
@@ -37,10 +36,13 @@ const display = () => {
     friendEl.innerText = post.friend;
 
     const postEl = document.createElement("div");
-    postEl.innerText = post.text;
+    const textEl = document.createElement("p");
+    textEl.className = "text";
+    textEl.innerText = post.text;
 
     postEl.append(friendEl);
     postEl.append(timestampEl);
+    postEl.append(textEl);
     postEl.append(imageEl);
 
     containerEl.append(postEl);
