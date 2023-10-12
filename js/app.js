@@ -41,14 +41,24 @@ const display = () => {
     friendEl.innerText = post.friend;
 
     const postEl = document.createElement("div");
+    postEl.className = "flip-card";
     const textEl = document.createElement("p");
     textEl.className = "text";
     textEl.innerText = post.text;
 
-    postEl.append(friendEl);
-    postEl.append(timestampEl);
-    postEl.append(textEl);
-    postEl.append(imageEl);
+    const flip_card_front = document.createElement("div");
+    flip_card_front.className = "flip-card-front";
+
+    const flip_card_back = document.createElement("div");
+    flip_card_back.className = "flip-card-back";
+
+    flip_card_front.append(imageEl);
+    flip_card_back.append(friendEl);
+    flip_card_back.append(timestampEl);
+    flip_card_back.append(textEl);
+
+    postEl.append(flip_card_front);
+    postEl.append(flip_card_back);
 
     containerEl.append(postEl);
   }
