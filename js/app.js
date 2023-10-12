@@ -20,13 +20,18 @@ const display = () => {
   // This makes things appear
   for (let index = bacefook.newsfeed.length - 1; index >= 0; index--) {
     const post = bacefook.newsfeed[index];
-
     const imageEl = document.createElement("img");
-    imageEl.src = "images/"+post.image+".png";
-    imageEl.alt = post.image+"の画像";
-    imageEl.width = 100;
-    // imageEl.height = 100;
-    
+    if((post.image).substr(1,4) === "User"){
+      imageEl.src = post.image;
+      imageEl.alt = post.image+"の画像";  
+      console.log(post.image);
+    }else{
+      imageEl.src = "images/"+post.image+".png";
+      imageEl.alt = post.image+"の画像";
+      imageEl.width = 100;
+      // imageEl.height = 100;  
+    }
+
     const timestampEl = document.createElement("div");
     timestampEl.className = "timestamp";
     timestampEl.innerHTML = "posted "+moment().diff(moment(post.timestamp), "minutes")+" minutes ago";

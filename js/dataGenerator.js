@@ -150,7 +150,8 @@
         friend: localStorage.getItem("username"),
         text: document.getElementById("article").value+document.getElementById("hashtags").value,
         feeling: document.getElementById("feelings").value,
-        image: getRandomElement(images),
+        //image: getRandomElement(images),
+        image: "/Users/user/Downloads/" + fileName,
         timestamp
       };
     }
