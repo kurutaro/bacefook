@@ -18,7 +18,7 @@ $(function(){
   	var $el = $(this),
 		id = $el.attr('href');
  		$('html, body').animate({
-   		scrollTop: $(id).offset().top - headerH
+   		//scrollTop: $(id).offset().top - headerH
  		}, 500);
 		$(this).addClass('active');
 		if (winW < 880){

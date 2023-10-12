@@ -24,7 +24,6 @@ const display = () => {
     if((post.image).substr(1,4) === "User"){
       imageEl.src = post.image;
       imageEl.alt = post.image+"の画像";  
-      console.log(post.image);
     }else{
       imageEl.src = "images/"+post.image+".png";
       imageEl.alt = post.image+"の画像";
@@ -42,9 +41,28 @@ const display = () => {
 
     const postEl = document.createElement("div");
     postEl.className = "flip-card";
+
     const textEl = document.createElement("p");
     textEl.className = "text";
     textEl.innerText = post.text;
+
+    const hashtagEl = document.createElement("p");
+    hashtagEl.className = "hashtag";
+    hashtagEl.innerText = post.hashtag;
+
+    const feelingEl = document.createElement("p");
+    feelingEl.className = "feeling";
+    feelingEl.innerText = post.feeling;
+
+    const stylistEl = document.createElement("img");
+    stylistEl.className = "stylist";
+    stylistEl.src = "images/"+post.stylist+".png";
+    stylistEl.alt = post.stylish+"の画像";
+    stylistEl.width = 100;
+    
+    const stylistTagEl = document.createElement("p");
+    stylistTagEl.className = "stylistTag";
+    stylistTagEl.innerText = "✂︎✂︎Stylist✂︎✂︎";
 
     const flip_card_front = document.createElement("div");
     flip_card_front.className = "flip-card-front";
@@ -56,10 +74,13 @@ const display = () => {
     flip_card_back.append(friendEl);
     flip_card_back.append(timestampEl);
     flip_card_back.append(textEl);
-
+    flip_card_back.append(hashtagEl);
+    flip_card_back.append(feelingEl);
+    flip_card_back.append(stylistEl);
+    flip_card_back.append(stylistTagEl);
     postEl.append(flip_card_front);
     postEl.append(flip_card_back);
-
+    console.log(bacefook.newsfeed)
     containerEl.append(postEl);
   }
 
