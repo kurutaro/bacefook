@@ -104,30 +104,25 @@
     "#hashtags",
     "#japanlife",
     "#oops",
-    ""
+    "#cute"
   ];
   const feelings = [
-    "happy",
-    "smug",
-    "lovestruck",
-    "gross",
-    "scared",
-    "tired",
-    "angry",
-    "frustrated",
-    "excited",
-    ""
+    "❤️",
+    "😀",
+    "😊",
+    "😍"
   ];
   const images = ["image1","image2","image3","image4"];
-
+  const stylist = [
+    "stylist1",
+    "stylist2"
+  ]
   const generateRandomText = () => {
     return [
       getRandomElement(starters),
       getRandomElement(verbs),
       getRandomElement(fillers),
-      getRandomElement(nouns),
-      getRandomElement(hashtags),
-      getRandomElement(feelings)
+      getRandomElement(nouns)
     ].join(" ");
   };
 
@@ -141,16 +136,19 @@
       return {
         friend: getRandomElement(bacefook.friendNames),
         text: generateRandomText(),
+        hashtag: getRandomElement(hashtags),
         feeling: getRandomElement(feelings),
         image: getRandomElement(images),
+        stylist: getRandomElement(stylist),
         timestamp
       };
     }else if(flag===1){
       return {
         friend: localStorage.getItem("username"),
-        text: document.getElementById("article").value+document.getElementById("hashtags").value,
+        text: document.getElementById("article").value,
+        hashtag:document.getElementById("hashtags").value,
         feeling: document.getElementById("feelings").value,
-        //image: getRandomElement(images),
+        stylist: getRandomElement(stylist),
         image: "/Users/user/Downloads/" + fileName,
         timestamp
       };
