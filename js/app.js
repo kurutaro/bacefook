@@ -33,9 +33,16 @@ const display = () => {
 
     const timestampEl = document.createElement("div");
     timestampEl.className = "timestamp";
-    timestampEl.innerHTML = "posted "+moment().diff(moment(post.timestamp), "minutes")+" minutes ago";
 
-    const friendEl = document.createElement("div");
+    if (moment().diff(moment(post.timestamp), "minutes") < 59){
+      timestampEl.innerHTML = "posted "+moment().diff(moment(post.timestamp), "minutes")+" minutes ago";
+    }else if(moment().diff(moment(post.timestamp), "hours") < 24){
+      timestampEl.innerHTML = "posted "+moment().diff(moment(post.timestamp), "hours")+" hours ago";
+    }else{
+      timestampEl.innerHTML = "posted "+moment().diff(moment(post.timestamp), "days")+" days ago";
+    }
+
+    const friendEl = document.createElement("p");
     friendEl.className = "friend";
     friendEl.innerText = post.friend;
 
@@ -60,9 +67,20 @@ const display = () => {
     stylistEl.alt = post.stylish+"の画像";
     stylistEl.width = 100;
     
+    
     const stylistTagEl = document.createElement("p");
     stylistTagEl.className = "stylistTag";
     stylistTagEl.innerText = "✂︎✂︎Stylist✂︎✂︎";
+
+    const stylistNameEl = document.createElement("p");
+    stylistNameEl.className = "stylistName";
+    stylistNameEl.innerText = post.stylistName;
+
+    const backimageEl = document.createElement("img");
+    backimageEl.className = "backimage";
+    backimageEl.src = "images/"+post.backimage+".png";
+    backimageEl.alt = post.backimage+"の画像";
+    backimageEl.width = 100;
 
     const flip_card_front = document.createElement("div");
     flip_card_front.className = "flip-card-front";
@@ -71,25 +89,65 @@ const display = () => {
     flip_card_back.className = "flip-card-back";
 
     flip_card_front.append(imageEl);
-    flip_card_back.append(friendEl);
     flip_card_back.append(timestampEl);
     flip_card_back.append(textEl);
     flip_card_back.append(hashtagEl);
     flip_card_back.append(feelingEl);
     flip_card_back.append(stylistEl);
     flip_card_back.append(stylistTagEl);
+    flip_card_back.append(backimageEl);
+    flip_card_back.append(friendEl);
+    flip_card_back.append(stylistNameEl);
     postEl.append(flip_card_front);
     postEl.append(flip_card_back);
-    console.log(bacefook.newsfeed)
     containerEl.append(postEl);
   }
 
 }
 
-
-
-
 window.addEventListener("load", display);
 
 const updateButton = document.getElementById("update");
 updateButton.addEventListener('click',display);
+
+// audio 要素と各ボタン要素を取得
+const audio = document.querySelector('audio');
+const playBtn =  document.querySelector('.play');
+const pauseBtn =  document.querySelector('.pause');
+const stopBtn =  document.querySelector('.stop');
+ 
+// 各ボタン要素の click イベントにリスナー関数を登録
+playBtn.addEventListener('click', playAudio, false );
+pauseBtn.addEventListener('click', pauseAudio, false );
+stopBtn.addEventListener('click', stopAudio, false );
+ 
+// Play ボタンのリスナー関数
+function playAudio() {
+  // play() メソッドで音声を再生
+  audio.play();
+}
+ 
+// Pause ボタンのリスナー関数
+function pauseAudio() {
+  // pause() メソッドで停止
+  audio.pause();
+}
+ 
+// Stop ボタンのリスナー関数
+function stopAudio() {
+  // 停止して再生位置を先頭に戻す
+  audio.pause();
+  audio.currentTime = 0;
+}
+
+// ボリューム設定
+let elem_volume = document.getElementById("volume");
+let elem_range = document.getElementById("vol_range");
+
+audio.volume = elem_volume.value;  // 初期値設定
+
+// ボリューム変更時
+elem_volume.addEventListener("change", function(){
+	audio.volume = elem_volume.value;
+	elem_range.textContent = elem_volume.value;
+}, false);
