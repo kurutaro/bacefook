@@ -8,7 +8,7 @@
   window.bacefook = {};
   bacefook.newsfeed = [];
   bacefook.friends = {};
-  bacefook.friendNames = ["tamaroh", "kani", "eriko", "tsubasa", "masataka"];
+  bacefook.friendNames = ["Kubo", "Kato", "Mihashi", "Suzuki", "Kodani"];
   bacefook.friendNames.forEach(name => {
     bacefook.friends[name] = [];
   });
@@ -20,35 +20,22 @@
   };
 
   const starters = [
-    "totally just",
-    "just",
-    "completely",
-    "waaaaah! i",
-    "i just",
-    "a salaryman",
-    "a salaryman",
-    "yesterday I",
-    "a ninja",
-    "my boss"
+    "Fear of risk is the biggest risk",
+    "Only you can change yourself",
+    "Now is the time to do it",
+    "your biggest enemy is yourself",
+    "the future is yours",
+    "the only impossible journey is the one you never begin."
   ];
   const verbs = [
-    "ate",
-    "drank",
-    "threw up in",
-    "refactored",
-    "iterated on",
-    "thought about",
-    "threw up on",
-    "saw",
-    "walked to",
-    "got lost in",
-    "walked into",
-    "googled",
-    "drove",
-    "ran to",
-    "worked on",
-    "slept on",
-    "slept in"
+    "#beauty",
+    "#newstyle",
+    "#cool",
+    "#bright",
+    "#color",
+    "#kawaii",
+    "#happy",
+    "#cute"
   ];
   const fillers = [
     "my",
@@ -110,19 +97,52 @@
     "❤️",
     "😀",
     "😊",
-    "😍"
+    "😍",
+    "🥹",
+    "😌",
+    "😘"
   ];
-  const images = ["image1","image2","image3","image4"];
+  const images = [
+    "image1",
+    "image2",
+    "image3",
+    "image7",
+    "image8",
+    "image9",
+    "image10"
+  ];
   const stylist = [
     "stylist1",
-    "stylist2"
+    "stylist2",
+    "stylist3",
+    "stylist4",
+    "stylist5"
   ]
+
+  const stylistName = [
+    "Takashi",
+    "Ken",
+    "Masashi",
+    "Syogo",
+    "Atsushi"
+  ];
+
+  const backimage = [
+    "backimage1",
+    "backimage2",
+    "backimage3",
+    "backimage4",
+    "backimage5",
+    "backimage6",
+    "backimage7"
+  ];
+
   const generateRandomText = () => {
     return [
       getRandomElement(starters),
-      getRandomElement(verbs),
-      getRandomElement(fillers),
-      getRandomElement(nouns)
+      // getRandomElement(verbs),
+      // getRandomElement(fillers),
+      // getRandomElement(nouns)
     ].join(" ");
   };
 
@@ -140,6 +160,8 @@
         feeling: getRandomElement(feelings),
         image: getRandomElement(images),
         stylist: getRandomElement(stylist),
+        stylistName:getRandomElement(stylistName),
+        backimage: getRandomElement(backimage),
         timestamp
       };
     }else if(flag===1){
@@ -150,6 +172,8 @@
         feeling: document.getElementById("feelings").value,
         stylist: getRandomElement(stylist),
         image: "/Users/user/Downloads/" + fileName,
+        backimage: getRandomElement(backimage),
+        stylistName:getRandomElement(stylistName),
         timestamp
       };
     }

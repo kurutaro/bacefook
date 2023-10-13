@@ -207,8 +207,7 @@ section h2 span {
   
 
 .flip-card-back {
-	background-color: #0066ff;
-	background-image: url(../images/img_4754.jpg);
+	background-color: white;
 	color: black;
 	width: 100%;
 	height: 100%;
@@ -220,7 +219,21 @@ section h2 span {
 	position: relative;
 }
 
+.backimage{
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	position: absolute;
+	opacity: 0.4;
+	z-index: 1;
+}
+
 .friend{
+	z-index: 1;
 	text-align: left;
 	text-shadow: 1px 2px 3px #808080;
 	font-size: x-large;
@@ -230,7 +243,8 @@ section h2 span {
 	border: dashed 1px #96c2fe;
 	padding: 0.2em 0.5em;
 	color: #454545;
-	width :fit-content
+	width : fit-content;
+	position: absolute;
 }
 
 .timestamp{
@@ -241,6 +255,7 @@ section h2 span {
 	text-decoration:underline;
 	color: #726B62;
 	font-family: 'Modern Antiqua', 'Noto Sans JP',serif;
+	z-index: 3;
 }
 
 .text{
@@ -248,14 +263,16 @@ section h2 span {
 	text-align: center;	
 	font-size: 30px;
 	position:absolute;
-	top: 40%;
+	top: 30%;
+	left:10%;
 	font-family: 'Modern Antiqua', 'Noto Sans JP',serif;
 	font-weight: 600;
   	line-height: 1.4em;
-  	filter: drop-shadow(10px 10px 5px hsl(248, 100%, 92%));
-	color: rgb(255, 157, 0);
-
+  	filter: drop-shadow(10px 10px 5px hsl(278, 100%, 80%));
+	color: rgb(5, 3, 0);
+	z-index: 4;
 }	
+
 .hashtag{
 	
 	text-align: left;	
@@ -264,6 +281,7 @@ section h2 span {
 	top: 90%;
 	font-family: 'Modern Antiqua', 'Noto Sans JP',serif;
 	color: #726B62;
+	z-index: 5;
 }
 
 .feeling{
@@ -273,6 +291,7 @@ section h2 span {
 	position:absolute;
 	top: -5%;
 	left: 0;
+	z-index: 6;
 }
 
 .stylist{
@@ -280,18 +299,32 @@ section h2 span {
 	text-align: right;	
 	font-size: 300px;
 	position:absolute;
-	top: 80%;
+	bottom: -5%;
 	right: 0;
+	z-index: 7;
 }
 
 .stylistTag{
 	font-family: 'Modern Antiqua', 'Noto Sans JP',serif;
 	text-align: right;	
+	font-size: 10px;
+	position:absolute;
+	top: 64%;
+	right: 7%;
+	z-index: 8;
+}
+
+.stylistName{
+	font-family: 'Modern Antiqua', 'Noto Sans JP',serif;
+	text-align: right;	
 	font-size: 15px;
 	position:absolute;
 	top: 70%;
+	top: 67%;
 	right: 0%;
+	z-index: 8;
 }
+
 .flip-card-front img {
 	background-color: white;
 	width: 100%;
