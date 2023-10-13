@@ -1,20 +1,22 @@
 const display = () => {
   // This is a check to see if there's a username stored
   let username = localStorage.getItem("username");
-  if (!username) {
-    // Prompt for one if a username isn't found
-    username = window.prompt("What is your name?");
-    localStorage.setItem("username", username);
-  }
+  // if (!username) {
+  //   // Prompt for one if a username isn't found
+  //   username = window.prompt("What is your name?");
+  //   localStorage.setItem("username", username);
+  // }
 
   const containerEl = document.querySelector("#newsfeed");
   while (containerEl.firstChild){
     containerEl.removeChild(containerEl.firstChild)
   }
 
-  if (username) {
+  if (username=="undefined") {
+    location.href = 'login.html';
+  }else{
     usernameEl = document.getElementById("profile");
-    usernameEl.innerHTML = "To "+username+"'s profile";
+    usernameEl.innerHTML = username+" is logged in";
   }
 
   // This makes things appear
@@ -80,10 +82,8 @@ const display = () => {
     flip_card_back.append(stylistTagEl);
     postEl.append(flip_card_front);
     postEl.append(flip_card_back);
-    console.log(bacefook.newsfeed)
     containerEl.append(postEl);
   }
-
 }
 
 
@@ -91,5 +91,26 @@ const display = () => {
 
 window.addEventListener("load", display);
 
-const updateButton = document.getElementById("update");
-updateButton.addEventListener('click',display);
+if (document.getElementById("update")){
+  const updateButton = document.getElementById("update");
+  updateButton.addEventListener('click',display);
+}
+
+
+const logout = () => {
+  localStorage.setItem("username", undefined)
+}
+
+const login = () => {
+  localStorage.setItem("username", document.getElementById("login-name").value)
+}
+
+if (document.getElementById("logout")){
+  const logoutButton = document.getElementById("logout");
+  logoutButton.addEventListener('click', logout)
+}
+
+if (document.getElementById("login-name")){
+  const loginButton = document.getElementById("login-btn");
+  loginButton.addEventListener('click', login)
+}

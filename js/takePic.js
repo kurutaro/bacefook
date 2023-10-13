@@ -103,7 +103,6 @@
         (ev) => {
           takepicture();
           ev.preventDefault();
-          console.log(document.getElementById("photo"))
         },
         false,
       );
